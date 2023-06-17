@@ -16,7 +16,6 @@ class BooksController extends Controller
      */
     public function index()
     {
-        // $books=[];
         $books= books::all();
 
         return view('Books.list',compact( "books"));
@@ -27,9 +26,7 @@ class BooksController extends Controller
      */
     public function create()
     {
-        //
         return view('Books.create');
-
     }
 
     /**
@@ -47,8 +44,6 @@ class BooksController extends Controller
             $path=$request->file('Image')->storeAs($destination_path,$image_name);
             $book['Image']=$image_name;
         }
-    dd($request->all());
-
         // $this->authorize('create', books::class);
     //     $validaated=$request->validate(['name'=>'required', 
     //     'title'=>'required |numeric',
@@ -57,11 +52,8 @@ class BooksController extends Controller
     // );        
         // $st->user_id = auth()->user()->id;
 
-        // $book->save();
-
-        // return to_route('books.index')-> with('success',' create and save success');
-
-        //
+        $book->save();
+        return to_route('books.index')-> with('success',' create and save success');
     }
 
     /**
