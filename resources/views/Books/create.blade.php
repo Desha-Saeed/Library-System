@@ -1,5 +1,5 @@
-{{-- @extends('layouts.app') --}}
- {{-- @section('content') --}}
+@extends('layouts.app')
+ @section('content')
  <div class="container">
 
     {!! Form::open(['route' => 'books.store', 'files' => true]) !!} 
@@ -46,4 +46,4 @@
     {!!   Form::submit('Click Me!' ,['class' => 'form-control btn btn-primary'])  !!}    
 </div>
 {!! Form::close() !!}
-  {{-- @endsection --}}
+  @endsection
