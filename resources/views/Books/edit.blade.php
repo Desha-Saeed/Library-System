@@ -1,5 +1,5 @@
- {{-- @extends('layouts.app') --}}
- {{-- @section('content') --}}
+ @extends('layouts.app')
+ @section('content')
  <div class="container">
 
 @foreach ( $errors->all() as $error )
@@ -53,4 +53,4 @@
  
 </div>
 {!! Form::close() !!}
-  {{-- @endsection --}}
+  @endsection

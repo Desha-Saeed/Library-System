@@ -1,5 +1,5 @@
-{{-- @extends('layouts.app') --}}
-{{-- @section('content') --}}
+@extends('layouts.app')
+@section('content')
 <div class="container">
 <?php
 //  use App\Models\User; 
@@ -62,5 +62,5 @@
         </tbody>
       </table>
 
-  {{-- @endsection --}}
+  @endsection
     
