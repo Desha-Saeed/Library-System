@@ -12,4 +12,14 @@ class books extends Model
     protected $guarded = [];
     use HasFactory;
     use SoftDeletes;
+
+    public function category()
+    {
+        // return $this->belongsTo(category::class);
+    }
+
+    public function Auther()
+    {
+        // return $this->belongsTo(Authers::class);
+    }
 }

@@ -14,8 +14,12 @@ class BooksController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
+    //  $this->authorize('view', books::class);
+    if ($request->user()->cannot('view', books::class)) 
+    return "no access";
+
         $books= books::all();
 
         return view('Books.list',compact( "books"));
@@ -26,6 +30,7 @@ class BooksController extends Controller
      */
     public function create()
     {
+     $this->authorize('create', books::class);
         return view('Books.create');
     }
 
@@ -34,8 +39,7 @@ class BooksController extends Controller
      */
     public function store(StorebooksRequest $request)
     {
-        // $book->title=$request->title;
-        // $book->description=$request->description;
+     $this->authorize('create', books::class);
         $book=new books($request->all());
         if($request->hasFile('Image')){ 
             $destination_path ='public/images/books';
@@ -44,13 +48,6 @@ class BooksController extends Controller
             $path=$request->file('Image')->storeAs($destination_path,$image_name);
             $book['Image']=$image_name;
         }
-        // $this->authorize('create', books::class);
-    //     $validaated=$request->validate(['name'=>'required', 
-    //     'title'=>'required |numeric',
-    //     'description'=>'required |unique:students'
-    //     ,'tracks_id'=>'required']
-    // );        
-        // $st->user_id = auth()->user()->id;
 
         $book->save();
         return to_route('books.index')-> with('success',' create and save success');
@@ -69,17 +66,11 @@ class BooksController extends Controller
      */
     public function edit(books $book, Request $request)
     {
-    // dd($book);
+
     //  $this->authorize('update', $book);
-
-     // if ($request->user()->cannot('update', $Student)) 
-     // return "no access";
- 
-  
-     return view('Books.edit',compact("book"));// لازم نفس اسم المتغير وبرده بنادي عليه بنفس الاسم في الليست
-
-     //
-        //
+     if ($request->user()->cannot('update', $book)) 
+     return "no access";
+     return view('Books.edit',compact("book"));
     }
 
     /**
@@ -88,6 +79,7 @@ class BooksController extends Controller
     // public function update(StorebooksRequest $request, books $book)
     public function update(UpdatebooksRequest $request, books $book)
     {
+     $this->authorize('update', $book);
     $book->update($request->all());
     if($request->hasFile('Image')){ 
         $destination_path ='public/images/books';
@@ -105,7 +97,7 @@ class BooksController extends Controller
      */
     public function destroy(  Request $request ,books $book)
     {
-    //  $books= books::find($books);
+        $this->authorize('delete', $book);
      $book->delete();
      $request->session()->flash('success',"deleted successfully");
 

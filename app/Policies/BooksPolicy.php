@@ -13,14 +13,19 @@ class BooksPolicy
      */
     public function viewAny(User $user): bool
     {
+
+        return true;
         //
     }
 
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, books $books): bool
+    // public function view(User $user, books $books): bool
+    public function view(User $user): bool
     {
+        return true;
+
         //
     }
 
@@ -29,6 +34,8 @@ class BooksPolicy
      */
     public function create(User $user): bool
     {
+        return true;
+        
         //
     }
 
@@ -38,6 +45,7 @@ class BooksPolicy
     public function update(User $user, books $books): bool
     {
         //
+        return true;
     }
 
     /**
@@ -45,6 +53,8 @@ class BooksPolicy
      */
     public function delete(User $user, books $books): bool
     {
+
+        return true;
         //
     }
 
@@ -53,6 +63,7 @@ class BooksPolicy
      */
     public function restore(User $user, books $books): bool
     {
+        return true;
         //
     }
 
@@ -62,5 +73,7 @@ class BooksPolicy
     public function forceDelete(User $user, books $books): bool
     {
         //
+        return true;
+
     }
 }

@@ -37,7 +37,9 @@
                 <td>{{ $book->description }}</td>
                 <td><img height=100px width="100px" src="{{asset('/storage/images/books/'.$book->Image)}}"></td>
                 <td>{{ $book->Auther_id }}</td>
+                {{-- <td>{{ $book->Auther->name }}</td> --}}
                 <td>{{ $book->Category_id }}</td>
+                {{-- <td>{{ $book->category->name }}</td> --}}
                 <td>{{ $book->created_at }}</td>
                 
 
