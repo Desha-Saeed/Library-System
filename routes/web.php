@@ -19,7 +19,12 @@ Route::get('/', function () {
 });
 
 
+
 Route::resource('books', BooksController::class);
+
+Route::resource('categories', App\Http\Controllers\CategoryController::class);
+
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
