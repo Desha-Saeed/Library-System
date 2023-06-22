@@ -39,7 +39,7 @@ class AuthorsController extends Controller
 
         $author = Author::create($validatedData);
 
-        return redirect()->route('authors.index')
+        return redirect()->route('Author.index')
             ->with('success', 'Author created successfully.');
     }
 

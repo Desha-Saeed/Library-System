@@ -1,4 +1,7 @@
-<form action="{{ route('authors.store') }}" method="POST">
+@extends('layouts.app')
+ @section('content')
+ <div class="container">
+<form action="{{ route('Author.store') }}" method="POST">
     @csrf
     <div>
         <label for="name">Name:</label>
@@ -23,3 +26,5 @@
     </div>
     <button type="submit">Create</button>
 </form>
+</div>
+  @endsection

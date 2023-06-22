@@ -15,11 +15,27 @@ class books extends Model
 
     public function category()
     {
-        // return $this->belongsTo(category::class);
+        return $this->belongsTo(Category::class);
     }
 
     public function Auther()
     {
-        // return $this->belongsTo(Authers::class);
+        return $this->belongsTo(Author::class);
     }
+
+
+
+
+
+    // public function author():BelongsTo
+    // {
+    //     return $this->belongsTo(Author::class);
+    // }
+
+    // public function categories()
+    // {
+    //     return $this->belongsToMany(Category::class);
+    // }
+
+
 }

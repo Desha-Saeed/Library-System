@@ -35,9 +35,15 @@
     @enderror
     </span>
 
+
     <div class="mb-3">
-        {!!   Form::label('Auther_id', 'Auther_id', ['class' => 'awesome'])  !!}
-        {!!   Form::number('Auther_id', null,['class' => 'form-control'])  !!}    
+        {!!   Form::label('Auther_id', 'Author name', ['class' => 'awesome'])  !!}
+        <select name="Auther_id" class="form-control"placeholder = 'plz select author...'>
+        <option value="">Select Author</option>
+            @foreach($authors as $author)
+            <option value="{{$author->id}}">{{$author->name}}</option>
+            @endforeach
+        </select>
     </div>
     <span
     class="@error('Auther_id') is-invalid @enderror">
@@ -45,10 +51,15 @@
     <div class="alert alert-danger">{{ $message }}</div>
     @enderror
     </span>
-    
+
     <div class="mb-3">
         {!!   Form::label('Category_id', 'Category_id', ['class' => 'awesome'])  !!}
-        {!!   Form::number('Category_id', null,['class' => 'form-control'])  !!}    
+        <select name="Category_id" class="form-control"placeholder = 'plz select cateory...'>
+            <option  value="">Select category</option>
+                @foreach($category as $cat)
+                <option value="{{$cat->id}}">{{$cat->name}}</option>
+                @endforeach
+            </select>
     </div>
     <span
     class="@error('Category_id') is-invalid @enderror">

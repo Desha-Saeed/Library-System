@@ -1,0 +1,13 @@
+body {
+  height: 100vh;
+  background-color: #373b3e;
+}
+.header {
+  position: fixed;
+  left: 0;
+  top: 50;
+  bottom: 0;
+  width: 18.5em;
+  background: #212529;
+}
+

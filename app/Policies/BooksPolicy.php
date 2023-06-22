@@ -24,7 +24,7 @@ class BooksPolicy
     // public function view(User $user, books $books): bool
     public function view(User $user): bool
     {
-        return true;
+        return $user->roles=='admin';
 
         //
     }
@@ -34,7 +34,7 @@ class BooksPolicy
      */
     public function create(User $user): bool
     {
-        return true;
+        return $user->roles=='admin';
         
         //
     }
@@ -45,7 +45,7 @@ class BooksPolicy
     public function update(User $user, books $books): bool
     {
         //
-        return true;
+        return $user->roles=='admin';
     }
 
     /**
@@ -54,13 +54,11 @@ class BooksPolicy
     public function delete(User $user, books $books): bool
     {
 
-        return true;
+        return $user->roles=='admin';
         //
     }
 
-    /**
-     * Determine whether the user can restore the model.
-     */
+
     public function restore(User $user, books $books): bool
     {
         return true;
