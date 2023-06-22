@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class books extends Model
@@ -13,14 +14,16 @@ class books extends Model
     use HasFactory;
     use SoftDeletes;
 
-    public function category()
+    public function category(): BelongsTo
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Category::class, 'foreign_key');
     }
 
-    public function Auther()
+
+
+    public function Auther(): BelongsTo
     {
-        return $this->belongsTo(Author::class);
+        return $this->belongsTo(Author::class, 'foreign_key');
     }
 
 

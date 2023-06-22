@@ -59,7 +59,7 @@ public function create(Request $request)
     public function show()
     {
         // return "not valid";
-        $books= books::all();
+         $books= books::all();
         return view('index',compact( "books"));
     }
     public function edit(books $book, Request $request)

@@ -11,4 +11,7 @@ class Category extends Model
     use HasFactory;
     use SoftDeletes;
     protected $fillable = ['name', 'description'];
+    public function book(){
+        return $this->belongsToMany(books::class);
+    }
 }
