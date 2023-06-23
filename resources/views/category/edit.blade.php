@@ -17,7 +17,9 @@
   @error('description')
     <div class="alert alert-danger">{{ $message }}</div>
 @enderror
+@can('update', App\Models\Category::class)
   {!! Form::submit('Update', ['class' => 'btn btn-success form-control']) !!}
   {!! Form::close() !!}
   </div>
+  @endcan
 @endsection

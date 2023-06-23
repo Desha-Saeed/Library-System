@@ -30,7 +30,10 @@ class CategoryController extends Controller
      */
     public function store(CategoryRequest $request)
     {
+
         $category = new Category($request->all());
+
+        $this->authorize('create', $category);
 
         if ($category->save())
             return to_route('categories.index')->with('success', 'Category created successfully');
@@ -59,9 +62,11 @@ class CategoryController extends Controller
     public function update(CategoryRequest $request, Category $category)
     {
         // $category = Category::find($id);
-        
+        //authorize update
+        $this->authorize('update', $category);
+
         if ($category->update($request->all()))
-        return to_route('categories.index');
+            return to_route('categories.index');
     }
 
     /**
