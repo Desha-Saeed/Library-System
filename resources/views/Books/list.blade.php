@@ -40,14 +40,15 @@
                 <td>{{ $book->Category_id }}</td>
                 <td>{{ $book->created_at }}</td>
                 
-
+                @can('update', App\Models\books::class)
                 <td>
-                {{-- @can('update', $book) --}}
+                   
                 <a class ='btn btn-primary'  href={{ route('books.edit', "$book->id") }}>edit book </a>
-                {{-- @endcan --}}
+              
                 </td>
+                @endcan
 
-
+                @can('delete', App\Models\books::class)
                 <td>
                 {!! Form ::open(['route' => ['books.destroy',$book->id], 'method' => 'delete']) !!} 
                 <div class="mb-3">
@@ -55,6 +56,7 @@
                 </div>
                 {!! Form::close() !!}
                 </td>
+                @endcan
             </tr>
         @endforeach
         

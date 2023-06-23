@@ -40,8 +40,13 @@
                     <ul class="navbar-nav me-auto">
 
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('categories.create') }}">Create New Category</a>
+                            <a class="nav-link" href="{{ route('categories.create') }}">Category</a>
                         </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('books.index') }}">Books</a>
+                        </li>
+-
 -
                     </ul>
 

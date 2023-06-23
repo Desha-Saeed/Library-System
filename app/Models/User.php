@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class User extends Authenticatable
 {
@@ -23,6 +24,10 @@ class User extends Authenticatable
         'password',
     ];
 
+    //soft deletes
+    use SoftDeletes;
+
+    protected $dates = ['deleted_at'];
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -43,7 +48,8 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function books() {
+    public function books()
+    {
         return $this->hasMany(books::class);
     }
 }

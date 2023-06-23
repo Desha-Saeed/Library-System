@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BooksController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ManagerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +25,7 @@ Route::resource('books', BooksController::class);
 
 Route::resource('categories', App\Http\Controllers\CategoryController::class);
 
+Route::resource('managers', ManagerController::class);
 
 Auth::routes();
 

@@ -57,9 +57,11 @@
     <div class="alert alert-danger">{{ $message }}</div>
     @enderror
     </span>
-<div class="mb-3">
+    @can('update', App\Models\books::class)   
+    <div class="mb-3">
     {!!   Form::submit('Click Me!' ,['class' => 'form-control btn btn-primary'])  !!}
  
-</div>
+    </div>
+    @endcan
 {!! Form::close() !!}
   @endsection

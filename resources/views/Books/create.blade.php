@@ -57,9 +57,11 @@
     @enderror
     </span>
     
-
+    @can('create', App\Models\books::class)
 <div class="mb-3">
     {!!   Form::submit('Click Me!' ,['class' => 'form-control btn btn-primary'])  !!}    
 </div>
+
+@endcan
 {!! Form::close() !!}
   @endsection
