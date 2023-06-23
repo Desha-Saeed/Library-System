@@ -46,7 +46,11 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('books.index') }}">Books</a>
                         </li>
--
+-                        @can('viewAny', App\Models\User::class)
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('managers.index') }}">Managers</a>
+                        </li>  
+                        @endcan 
 -
                     </ul>
 

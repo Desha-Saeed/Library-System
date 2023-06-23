@@ -33,15 +33,16 @@
                 <td>{{ $user->email }}</td>
             
                 
-               
+                @can('delete', App\Models\User::class)
                 <td>
                    
                 <a class ='btn btn-primary'  href={{ route('managers.edit', "$user->id") }}>edit book </a>
               
                 </td>
+                @endcan
           
 
-              
+                @can('delete', App\Models\User::class)
                 <td>
                 {!! Form ::open(['route' => ['managers.destroy',$user->id], 'method' => 'delete']) !!} 
                 <div class="mb-3">
@@ -49,6 +50,7 @@
                 </div>
                 {!! Form::close() !!}
                 </td>
+                @endcan
              
             </tr>
         @endforeach

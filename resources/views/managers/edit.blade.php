@@ -40,13 +40,13 @@
         
                           
         
-                            <!-- Add other form fields as needed -->
-        
+                           @can('update', App\Models\User::class)
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     {!! Form::submit(__('Update Manager'), ['class' => 'btn btn-primary']) !!}
                                 </div>
                             </div>
+                            @endcan
                         {!! Form::close() !!}
                     </div>
                 </div>

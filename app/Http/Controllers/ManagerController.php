@@ -13,6 +13,8 @@ class ManagerController extends Controller
      */
     public function index()
     {
+
+
         $users = User::where('roles', 'admin')->get();
         return view('managers.list', compact("users"));
     }
@@ -32,6 +34,8 @@ class ManagerController extends Controller
     public function store(Request $request)
     {
         //
+        $user = new User();
+        $this->authorize('create', $user);
 
         $request->validate([
             'name' => 'required|max:255',
@@ -39,7 +43,7 @@ class ManagerController extends Controller
             'password' => 'required|min:6',
         ]);
 
-        $user = new User();
+
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
@@ -72,6 +76,7 @@ class ManagerController extends Controller
     public function update(Request $request, User $manager)
     {
         //
+        $this->authorize('update', $manager);
         $request->validate([
             'name' => 'required|max:255',
             'email' => 'required|email|unique:users,email,' . $manager->id,
@@ -96,7 +101,7 @@ class ManagerController extends Controller
     public function destroy(User $manager)
     {
         //
-
+        $this->authorize('delete', $manager);
         // Delete the manager
         $manager->delete();
 

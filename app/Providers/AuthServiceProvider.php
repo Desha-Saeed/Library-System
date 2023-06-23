@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use App\Models\books;
 use App\Policies\BooksPolicy;
+use App\Models\User;
+use App\Policies\UserPolicy;
 use Illuminate\Support\Facades\Gate;
 
 // use Illuminate\Support\Facades\Gate;
@@ -21,6 +23,7 @@ class AuthServiceProvider extends ServiceProvider
 
         Category::class => CategoryPolicy::class,
         books::class => BooksPolicy::class,
+        User::class => UserPolicy::class
 
     ];
 
@@ -33,5 +36,6 @@ class AuthServiceProvider extends ServiceProvider
 
         Gate::define('manage-categories', [CategoryPolicy::class, 'viewAny']);
         Gate::define('manage-books', [BooksPolicy::class, 'viewAny']);
+        Gate::define('manage-managers', [UserPolicy::class, 'viewAny']);
     }
 }

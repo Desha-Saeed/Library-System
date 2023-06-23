@@ -37,10 +37,11 @@
 
    
 
-   
+   @can('create', App\Models\User::class)
 <div class="mb-3">
     {!!   Form::submit('add manager!' ,['class' => 'form-control btn btn-primary'])  !!}    
 </div>
+@endcan
 
 {!! Form::close() !!}
   @endsection
