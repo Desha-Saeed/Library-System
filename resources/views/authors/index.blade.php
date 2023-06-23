@@ -1,3 +1,4 @@
+
 @foreach ($authors as $author)
     <div>
         <h2>{{ $author->name }}</h2>

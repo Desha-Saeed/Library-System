@@ -12,4 +12,10 @@ class books extends Model
     protected $guarded = [];
     use HasFactory;
     use SoftDeletes;
+    
+    
+    public function author()
+    {
+        return $this->belongsTo(Author::class);
+    }
 }

@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\BooksController;
+use App\Http\Controllers\AuthorController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,3 +25,5 @@ Route::resource('books', BooksController::class);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Route::resource('/authors', AuthorsController::class);
+//Route::get('/authors', [AuthorsController::class, 'index'])->name('authors.index');
